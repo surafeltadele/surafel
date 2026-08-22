@@ -247,6 +247,7 @@
     </footer>
 
     <!-- JAVASCRIPT FOR ANIMATIONS -->
+    <!-- JAVASCRIPT FOR ANIMATIONS -->
     <script>
         // 1. TYPING EFFECT LOGIC
         const words = ["Embedded Systems Engineer", "IoT Developer", "C++ Firmware Architect", "ESP32 Specialist"];
@@ -269,17 +270,17 @@
             let typeSpeed = isDeleting ? 50 : 100;
 
             if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000; // Pause at end of word
-                is   Deleting = true;
+                typeSpeed = 2000; 
+                isDeleting = true; // FIXED: I REMOVED THE SPACES HERE!
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 i++;
                 if (i === words.length) i = 0;
-                typeSpeed = 500; // Pause before typing new word
+                typeSpeed = 500; 
             }
             setTimeout(typingEffect, typeSpeed);
         }
-        typingEffect(); // Start typing animation
+        typingEffect(); 
 
         // 2. SCROLL REVEAL ANIMATION
         const observer = new IntersectionObserver((entries) => {
