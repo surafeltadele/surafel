@@ -88,8 +88,8 @@
             border-radius: 12px;
             padding: 25px;
             transition: all 0.4s ease;
-            opacity: 0; /* Hidden for JS scroll effect */
-            transform: translateY(30px); /* Pushed down for JS scroll effect */
+            opacity: 0; 
+            transform: translateY(30px); 
         }
 
         .card.visible {
@@ -135,14 +135,27 @@
             font-weight: 600;
             font-family: 'Fira Code', monospace;
             transition: all 0.3s ease;
-            width: 100%;
             text-align: center;
+            margin: 5px;
         }
 
         .btn:hover {
             background: var(--primary);
             color: #000;
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+
+        .about {
+            background: #161b22;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border: 1px solid #30363d;
+            text-align: center;
         }
 
         footer {
@@ -164,21 +177,34 @@
         <p class="hero-text">
             I architect commercial-grade C++ firmware for the ESP32 and Arduino ecosystems. From non-blocking RTOS logic and I2C sensor integration, to live HTTP IoT dashboards, I build hardware simulations to guarantee code stability before physical deployment.
         </p>
-        <a href="#portfolio" class="btn" style="width: auto; padding: 15px 30px;">View Live Simulations ↓</a>
+        <a href="#portfolio" class="btn" style="padding: 15px 30px;">View Live Simulations ↓</a>
     </header>
 
-    <!-- PORTFOLIO SECTION -->
-    <div class="container" id="portfolio">
-        <h2 class="section-title">&lt; Portfolio /&gt;</h2>
+    <!-- CONTAINER -->
+    <div class="container">
+        
+        <!-- ABOUT ME & CONTACT LINKS -->
+        <div class="about">
+            <h3 style="color: #ffffff; margin-top: 0; font-size: 1.8rem;">Ready to build?</h3>
+            <p style="color: #8b949e; margin-bottom: 20px;">I am currently accepting freelance contracts and remote opportunities. Connect with me below to discuss your hardware architecture.</p>
+            
+            <!-- YOUR SOCIAL LINKS ADDED HERE -->
+            <a href="https://www.upwork.com/freelancers/~01b1122fa8ded405eb" class="btn" target="_blank" style="background-color: #14a800; color: white; border: none;">Hire Me on Upwork</a>
+            
+            <a href="https://www.linkedin.com/in/surafel-tadele-b782b3329/" class="btn" target="_blank" style="background-color: #0077b5; color: white; border: none;">Connect on LinkedIn</a>
+        </div>
 
+        <h2 class="section-title" id="portfolio">&lt; Portfolio /&gt;</h2>
+
+        <!-- PROJECTS GRID -->
         <div class="projects-grid">
-
+            
             <!-- PROJECT 1 -->
             <div class="card">
                 <h3>API Smart Weather Station</h3>
                 <span class="tags">ESP32 • JSON Parsing • I2C OLED • HTTP GET</span>
                 <p>An enterprise-grade IoT device that queries live global weather REST APIs. The firmware parses incoming JSON payloads using ArduinoJson and renders atmospheric telemetry onto a 128x64 I2C OLED graphical interface.</p>
-                <a href="https://wokwi.com/projects/472149787248385025" class="btn" target="_blank">► Run Simulation</a>
+                <a href="https://wokwi.com/projects/472149787248385025" class="btn btn-full" target="_blank">► Run Simulation</a>
             </div>
 
             <!-- PROJECT 2 -->
@@ -186,7 +212,7 @@
                 <h3>ESP32 IoT Web Server Dashboard</h3>
                 <span class="tags">ESP32 • Wi-Fi • Web Server • HTML/CSS</span>
                 <p>An independent Wi-Fi Web Server hosting a custom HTML/CSS mobile dashboard. It processes live analog telemetry and features two-way HTTP routing, allowing users to remotely trigger physical hardware via web buttons.</p>
-                <a href="https://wokwi.com/projects/471864400052160513" class="btn" target="_blank">► Run Simulation</a>
+                <a href="https://wokwi.com/projects/471864400052160513" class="btn btn-full" target="_blank">► Run Simulation</a>
             </div>
 
             <!-- PROJECT 3 -->
@@ -194,7 +220,7 @@
                 <h3>Non-Blocking Digital Clock</h3>
                 <span class="tags">C++ • millis() Architecture • LCD UI</span>
                 <p>A digital clock engineered using a non-blocking millis() architecture. By avoiding standard delay() functions, the microcontroller tracks time continuously while executing background hardware tasks without latency.</p>
-                <a href="https://wokwi.com/projects/471859548458084353" class="btn" target="_blank">► Run Simulation</a>
+                <a href="https://wokwi.com/projects/471859548458084353" class="btn btn-full" target="_blank">► Run Simulation</a>
             </div>
 
             <!-- PROJECT 4 -->
@@ -202,7 +228,7 @@
                 <h3>RFID & Keypad Security System</h3>
                 <span class="tags">C++ • State-Machine • Matrix Keypad • Servos</span>
                 <p>Firmware for a Commercial Access Control System. Utilizes a Boolean state-machine that sleeps until a PIR sensor detects a user. Evaluates dynamic password entry to trigger a servo-driven lock or audio/visual alarm.</p>
-                <a href="https://wokwi.com/projects/471781513440527361" class="btn" target="_blank">► Run Simulation</a>
+                <a href="https://wokwi.com/projects/471781513440527361" class="btn btn-full" target="_blank">► Run Simulation</a>
             </div>
 
             <!-- PROJECT 5 -->
@@ -210,7 +236,7 @@
                 <h3>Automated Smart Irrigation</h3>
                 <span class="tags">Arduino • Analog Mapping • Hysteresis Logic</span>
                 <p>An automation controller that reads an analog soil moisture sensor, maps the data to a 0-100% scale, and uses hysteresis (dead-zone) logic to safely control a 220V water pump without hardware flickering.</p>
-                <a href="https://wokwi.com/projects/471772941450829825" class="btn" target="_blank">► Run Simulation</a>
+                <a href="https://wokwi.com/projects/471772941450829825" class="btn btn-full" target="_blank">► Run Simulation</a>
             </div>
 
         </div>
@@ -244,7 +270,7 @@
 
             if (!isDeleting && charIndex === currentWord.length) {
                 typeSpeed = 2000; // Pause at end of word
-                isDeleting = true;
+                is   Deleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 i++;
