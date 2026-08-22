@@ -3,133 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surafel Tadele | Embedded Systems Developer</title>
+    <title>Surafel Tadele | Embedded Firmware Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* This is the CSS that makes it look beautiful */
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --primary: #00f0ff;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        /* HERO SECTION */
         header {
-            background-color: #161b22;
-            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border-bottom: 3px solid #2ea043;
+            background: radial-gradient(circle at center, #1f2937 0%, #0d1117 100%);
+            border-bottom: 2px solid #30363d;
+            padding: 20px;
         }
+
         h1 {
+            font-size: 3.5rem;
             color: #ffffff;
-            margin-bottom: 5px;
-            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
         }
-        h2 {
-            color: #2ea043;
-            font-weight: 300;
-            margin-top: 0;
+
+        /* JAVASCRIPT TYPING EFFECT TEXT */
+        .typewriter {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            min-height: 30px;
         }
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
-        .about {
-            background: #161b22;
-            padding: 20px;
-            border-radius: 8px;
+
+        .hero-text {
+            max-width: 600px;
+            color: var(--text-muted);
             margin-bottom: 30px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
         }
+
+        /* CONTAINER & GRID */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2.section-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
+
+        /* PROJECT CARDS */
         .card {
-            background: #161b22;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #2ea043;
-            transition: transform 0.3s;
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            opacity: 0; /* Hidden for JS scroll effect */
+            transform: translateY(30px); /* Pushed down for JS scroll effect */
         }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
         }
+
         .card h3 {
-            color: #58a6ff;
-            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
         }
-        .btn {
-            display: inline-block;
-            background-color: #2ea043;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .btn:hover {
-            background-color: #238636;
-        }
+
         .tags {
+            font-family: 'Fira Code', monospace;
             font-size: 0.8rem;
-            color: #8b949e;
+            color: var(--primary);
             margin-bottom: 15px;
             display: block;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #30363d;
+            color: var(--text-muted);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
+    <!-- HERO SECTION -->
     <header>
         <h1>Surafel Tadele</h1>
-        <h2>Embedded Systems & IoT Developer | ESP32 | C++</h2>
+        <div class="typewriter" id="typewriter"></div>
+        <p class="hero-text">
+            I architect commercial-grade C++ firmware for the ESP32 and Arduino ecosystems. From non-blocking RTOS logic and I2C sensor integration, to live HTTP IoT dashboards, I build hardware simulations to guarantee code stability before physical deployment.
+        </p>
+        <a href="#portfolio" class="btn" style="width: auto; padding: 15px 30px;">View Live Simulations ↓</a>
     </header>
 
-    <div class="container">
-        <!-- ABOUT ME SECTION -->
-        <div class="about">
-            <h3 style="color: #ffffff; margin-top: 0;">About Me</h3>
-            <p>I am an Embedded Systems Developer based in Ethiopia, specializing in Arduino, ESP32, and Internet of Things (IoT) architecture. I help businesses and creators bring their hardware ideas to life with clean, professional C++ firmware.</p>
-            <p>I write highly optimized, non-blocking code. To guarantee firmware stability, I build 1-to-1 virtual hardware simulations for my clients before physical deployment.</p>
-            <a href="#" class="btn">Hire Me on Upwork</a>
-            <a href="#" class="btn" style="background-color: #0077b5;">Connect on LinkedIn</a>
-        </div>
+    <!-- PORTFOLIO SECTION -->
+    <div class="container" id="portfolio">
+        <h2 class="section-title">&lt; Portfolio /&gt;</h2>
 
-        <h3 style="color: #ffffff; font-size: 1.8rem;">Project Portfolio</h3>
-
-        <!-- PROJECTS GRID -->
         <div class="projects-grid">
-            
+
             <!-- PROJECT 1 -->
             <div class="card">
-                <h3>IoT Smart Farm Dashboard</h3>
-                <span class="tags">ESP32 • Wi-Fi • HTTP Web Server • HTML/CSS</span>
-                <p>An ESP32-based Web Server that hosts a custom HTML/CSS dashboard. It processes live analog soil moisture telemetry and features two-way HTTP routing to remotely trigger a 220V water pump relay via web buttons.</p>
-                <a href="PUT_WOKWI_LINK_HERE" class="btn" target="_blank">Run Live Simulation</a>
+                <h3>API Smart Weather Station</h3>
+                <span class="tags">ESP32 • JSON Parsing • I2C OLED • HTTP GET</span>
+                <p>An enterprise-grade IoT device that queries live global weather REST APIs. The firmware parses incoming JSON payloads using ArduinoJson and renders atmospheric telemetry onto a 128x64 I2C OLED graphical interface.</p>
+                <a href="https://wokwi.com/projects/472149787248385025" class="btn" target="_blank">► Run Simulation</a>
             </div>
 
             <!-- PROJECT 2 -->
             <div class="card">
-                <h3>Smart Security Access System</h3>
-                <span class="tags">C++ • State-Machine • Keypad • Servos</span>
-                <p>C++ firmware for a multi-stage Commercial Access Control System. Utilizes a Boolean state-machine that sleeps until a PIR sensor detects a user. Evaluates dynamic password entry to trigger a servo-driven locking mechanism.</p>
-                <a href="PUT_WOKWI_LINK_HERE" class="btn" target="_blank">Run Live Simulation</a>
+                <h3>ESP32 IoT Web Server Dashboard</h3>
+                <span class="tags">ESP32 • Wi-Fi • Web Server • HTML/CSS</span>
+                <p>An independent Wi-Fi Web Server hosting a custom HTML/CSS mobile dashboard. It processes live analog telemetry and features two-way HTTP routing, allowing users to remotely trigger physical hardware via web buttons.</p>
+                <a href="https://wokwi.com/projects/471864400052160513" class="btn" target="_blank">► Run Simulation</a>
             </div>
 
             <!-- PROJECT 3 -->
             <div class="card">
                 <h3>Non-Blocking Digital Clock</h3>
-                <span class="tags">C++ • Logic Optimization • LCD UI</span>
-                <p>A digital clock built using a non-blocking millis() architecture. By avoiding standard delay() functions, the microcontroller tracks time continuously while simultaneously executing background hardware tasks.</p>
-                <a href="PUT_WOKWI_LINK_HERE" class="btn" target="_blank">Run Live Simulation</a>
+                <span class="tags">C++ • millis() Architecture • LCD UI</span>
+                <p>A digital clock engineered using a non-blocking millis() architecture. By avoiding standard delay() functions, the microcontroller tracks time continuously while executing background hardware tasks without latency.</p>
+                <a href="https://wokwi.com/projects/471859548458084353" class="btn" target="_blank">► Run Simulation</a>
+            </div>
+
+            <!-- PROJECT 4 -->
+            <div class="card">
+                <h3>RFID & Keypad Security System</h3>
+                <span class="tags">C++ • State-Machine • Matrix Keypad • Servos</span>
+                <p>Firmware for a Commercial Access Control System. Utilizes a Boolean state-machine that sleeps until a PIR sensor detects a user. Evaluates dynamic password entry to trigger a servo-driven lock or audio/visual alarm.</p>
+                <a href="https://wokwi.com/projects/471781513440527361" class="btn" target="_blank">► Run Simulation</a>
+            </div>
+
+            <!-- PROJECT 5 -->
+            <div class="card">
+                <h3>Automated Smart Irrigation</h3>
+                <span class="tags">Arduino • Analog Mapping • Hysteresis Logic</span>
+                <p>An automation controller that reads an analog soil moisture sensor, maps the data to a 0-100% scale, and uses hysteresis (dead-zone) logic to safely control a 220V water pump without hardware flickering.</p>
+                <a href="https://wokwi.com/projects/471772941450829825" class="btn" target="_blank">► Run Simulation</a>
             </div>
 
         </div>
     </div>
 
+    <footer>
+        <p>Engineered by Surafel Tadele | Based in Ethiopia</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR ANIMATIONS -->
+    <script>
+        // 1. TYPING EFFECT LOGIC
+        const words = ["Embedded Systems Engineer", "IoT Developer", "C++ Firmware Architect", "ESP32 Specialist"];
+        let i = 0;
+        let timer;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeWriterElement = document.getElementById('typewriter');
+
+        function typingEffect() {
+            let currentWord = words[i];
+            if (isDeleting) {
+                typeWriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeWriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                i++;
+                if (i === words.length) i = 0;
+                typeSpeed = 500; // Pause before typing new word
+            }
+            setTimeout(typingEffect, typeSpeed);
+        }
+        typingEffect(); // Start typing animation
+
+        // 2. SCROLL REVEAL ANIMATION
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card) => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
